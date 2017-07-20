@@ -56,8 +56,8 @@ function SquareObject() {
 }
 
 
-function loadSquares() {
-    var table = document.getElementById('square-table');
+function loadSquares(target) {
+    var table = document.getElementById(target);
     var numSquares = window.innerWidth / SQUARE_SIZE;
 
     for(var I=0; I<SQUARE_ROWS; I++) {
