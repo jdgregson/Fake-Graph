@@ -14,33 +14,28 @@
  */
 
 
-function SquareObject()
-{
-    this._class = "square";
-    this.color = "blue";
+function SquareObject() {
+    this._class = 'square';
+    this.color = 'blue';
     this.flashTimer = null;
-    this.obj = document.createElement("TD");
-    this.obj.setAttribute("class", this._class + " " + this.color);
+    this.obj = document.createElement('td');
+    this.obj.setAttribute('class', this._class + ' ' + this.color);
 
-    this.getClass = function()
-    {
-        return this._class + " " + this.color;
+    this.getClass = function() {
+        return this._class + ' ' + this.color;
     }
 
-    this.setClass = function()
-    {
-        this.obj.setAttribute("class", this.getClass())
+    this.setClass = function() {
+        this.obj.setAttribute('class', this.getClass())
     }
 
-    this.setColor = function(color)
-    {
+    this.setColor = function(color) {
         // remove ourselves from blinkkArray to stop blinking
         // TODO: This method is used by the class that adds it
         // to the array, so it's removed right away. Find a way
         // to not do that.
         if(blinkArray.indexOf(this) > -1 && 
-           (blinkArray.indexOf(this) != (blinkArray.length-1)))
-        {
+          (blinkArray.indexOf(this) !== (blinkArray.length-1))) {
             var i = blinkArray.indexOf(this);
             blinkArray.splice(i, 1);
         }
@@ -50,29 +45,24 @@ function SquareObject()
         this.setClass();
     }
 
-    this.nextColor = function()
-    {
-        return(this.color == "yellow"? "blue":"yellow");
+    this.nextColor = function() {
+        return(this.color === 'yellow'? 'blue':'yellow');
     }
 
-    this.blinkYellow = function()
-    {
-        //this.flashTimer = self.setInterval("this.setColor(this.nextColor())", 1000);
+    this.blinkYellow = function() {
+        //this.flashTimer = self.setInterval('this.setColor(this.nextColor())', 1000);
         blinkArray.push(this);
     }
 }
 
 
-function loadSquares()
-{
-    var table = document.getElementById("square-table");
+function loadSquares() {
+    var table = document.getElementById('square-table');
     var numSquares = window.innerWidth / SQUARE_SIZE;
 
-    for(var I=0; I<SQUARE_ROWS; I++)
-    {
-        table.appendChild(document.createElement("TR"));
-        for(var i=0; i<numSquares; i++)
-        {
+    for(var I=0; I<SQUARE_ROWS; I++) {
+        table.appendChild(document.createElement('TR'));
+        for(var i=0; i<numSquares; i++) {
             var square = new SquareObject();
             squareArray.push(square);
             table.children[I].appendChild(square.obj);
@@ -81,25 +71,14 @@ function loadSquares()
 }
 
 
-function squareTimerJob()
-{
-    var rand = Math.floor(Math.random()*(squareArray.length));
-    squareArray[rand].setColor("red");
-    /*if(rand % 2 == 0)
-    {
-        squareArray[rand].setColor("red");
-    }
-    else
-    {
-        return;
-    }*/
+function squareTimerJob() {
+    var rand = Math.floor(Math.random() * (squareArray.length));
+    squareArray[rand].setColor('red');
 }
 
 
-function blinkTimerJob()
-{
-    for(i in blinkArray)
-    {
+function blinkTimerJob() {
+    for(var i in blinkArray) {
         blinkArray[i].setColor(blinkArray[i].nextColor());
     }
 }
