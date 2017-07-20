@@ -74,7 +74,7 @@ hr {
 .bar {
     width: 30px;
     height: 100px;
-    margin-top: -400;
+    margin-top: -400px;
     position: absolute;
     text-align: center;
 }

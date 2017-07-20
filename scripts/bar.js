@@ -39,7 +39,7 @@ function BarObject(right, height) {
                          (height>20?20:0)) + 'px;">' + height + '</span>';
 
     this.getStyle = function() {
-        return('right:' + this.right + '; height:' + this.height + ';');
+        return('right:' + this.right + 'px; height:' + this.height + 'px;');
     }
 
     this.applyStyle = function() {
