@@ -18,6 +18,7 @@ function SquareObject() {
     this._class = 'square';
     this.color = 'blue';
     this.flashTimer = null;
+    this.blinkColor = 'yellow';
     this.obj = document.createElement('td');
     this.obj.setAttribute('class', this._class + ' ' + this.color);
 
@@ -26,32 +27,32 @@ function SquareObject() {
     }
 
     this.setClass = function() {
-        this.obj.setAttribute('class', this.getClass())
+        this.obj.setAttribute('class', this.getClass());
+    }
+
+    this.getColor = function() {
+        return this.color;
     }
 
     this.setColor = function(color) {
-        // remove ourselves from blinkkArray to stop blinking
-        // TODO: This method is used by the class that adds it
-        // to the array, so it's removed right away. Find a way
-        // to not do that.
-        if(blinkArray.indexOf(this) > -1 && 
-          (blinkArray.indexOf(this) !== (blinkArray.length-1))) {
-            var i = blinkArray.indexOf(this);
-            blinkArray.splice(i, 1);
-        }
-
         self.clearInterval(this.flashTimer);
         this.color = color;
         this.setClass();
     }
 
     this.nextColor = function() {
-        return(this.color === 'yellow'? 'blue':'yellow');
+        return this.color==='yellow'?'red':this.color==='blue'?'yellow':'blue';
     }
 
-    this.blinkYellow = function() {
-        //this.flashTimer = self.setInterval('this.setColor(this.nextColor())', 1000);
+    this.blink = function() {
         blinkArray.push(this);
+    }
+
+    this.unblink = function() {
+        if(blinkArray.indexOf(this) > -1) {
+            var i = blinkArray.indexOf(this);
+            blinkArray.splice(i, 1);
+        }
     }
 }
 
@@ -70,15 +71,27 @@ function loadSquares(target) {
     }
 }
 
-
+ 
 function squareTimerJob() {
-    var rand = Math.floor(Math.random() * (squareArray.length));
-    squareArray[rand].setColor('red');
+    var square = squareArray[Math.floor(Math.random() * (squareArray.length))];
+    square.setColor(square.nextColor());
+    square.unblink();
+    if(square.getColor() !== 'blue') {
+        square.blink();
+    }
 }
 
 
 function blinkTimerJob() {
     for(var i in blinkArray) {
-        blinkArray[i].setColor(blinkArray[i].nextColor());
+        var square = blinkArray[i];
+        var color = square.getColor();
+        if(color === 'blue') {
+            square.setColor(square.blinkColor);
+            square.blinkColor = null;
+        } else {
+            square.blinkColor = color;
+            square.setColor('blue');
+        }
     }
 }
