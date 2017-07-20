@@ -1,0 +1,42 @@
+<!DOCYTPE html>
+<html>
+<head>
+    <title>Fake Graph</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="gray top"></div>
+    <div id="control-panel">
+        <span class="label">&nbsp;&nbsp; speed: </span>
+        <span class="button red" onclick="setBarSpeed('stop')">stop</span>
+        <span class="button yellow" onclick="setBarSpeed('slow')">slow</span>
+        <span class="button blue" onclick="setBarSpeed('normal')">normal</span>
+        <span class="button blue" onclick="setBarSpeed('fast')">fast</span>
+        <span class="button blue" onclick="setBarSpeed('wayfast')">way fast</span>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="label">allowed change:</span>
+        <span class="label" id="maxDiffView">05</span>
+        <span class="button blue" onclick="maxDiff-=5;document.getElementById('maxDiffView').innerHTML=maxDiff">&nbsp;- </span>
+        <span class="button blue" onclick="maxDiff+=5;document.getElementById('maxDiffView').innerHTML=maxDiff">&nbsp;+&nbsp;</span>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="label">cause:</span>
+        <span class="button blue" onclick="lastNumber=10">drop</span>
+        <span class="button blue" onclick="lastNumber=280">spike</span>
+        <span class="button blue" onclick="lastNumber+=maxDiff">good day</span>
+        <span class="button blue" onclick="lastNumber-=maxDiff">bad day</span>
+    </div>
+    <div class="gray bottom"></div>
+    <div id="graph-container">
+        <hr><hr><hr><hr>
+    </div>
+    <div id="square-container">
+        <table id="square-table" cell-spacing="5px" cell-padding="5px">
+        </table>
+    </div>
+    <script type="text/javascript" src="scripts/square.js" ></script>
+    <script type="text/javascript" src="scripts/bar.js" ></script>
+    <script type="text/javascript" src="scripts/main.js" ></script>
+</body>
+</html>
