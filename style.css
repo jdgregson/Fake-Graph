@@ -92,6 +92,16 @@ hr
     text-align: center;
 }
 
+.bar:hover {
+    border: 2px solid rgba(255, 255, 0, 0.6);
+}
+
+.bar:hover > .data {
+    color: rgba(255, 255, 0, 0.6) !important;
+    font-weight: bold !important;
+    font-size: 64pt;
+}
+
 .blue
 {
     background-color: rgba(60, 60, 255, 0.8) !important;
