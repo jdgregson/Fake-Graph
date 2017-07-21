@@ -1,0 +1,35 @@
+.bar {
+    width: 30px;
+    height: 100px;
+    margin-top: -400px;
+    position: absolute;
+    text-align: center;
+}
+
+.bar:hover {
+    border: 2px solid rgba(255, 255, 0, 0.6);
+}
+
+.bar:hover > .data {
+    color: rgba(255, 255, 0, 0.6) !important;
+    font-weight: bold !important;
+    font-size: 64pt;
+}
+
+.blue {
+    background-color: rgba(60, 60, 255, 0.8) !important;
+}
+
+.data {
+    font-family: tahoma;
+    color: #607080;
+    position: relative;
+    z-index: 10000;
+}
+
+#graph-container {
+    background-color: #303030;
+    width: 100%;
+    height: 305px;
+    margin-top: 5px;
+}

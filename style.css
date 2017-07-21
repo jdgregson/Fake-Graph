@@ -9,25 +9,6 @@ body {
     user-select: none;
 }
 
-#graph-container {
-    background-color: #303030;
-    width: 100%;
-    height: 305px;
-    margin-top: 5px;
-}
-
-#square-container {
-    background-color: #303030;
-    width: 100%;
-    height: 305px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-
-#square-table {
-    border-spacing: 8px;
-}
-
 .gray {
     background-color: #303030;
     width: 100%;
@@ -69,48 +50,4 @@ hr {
     background-color: #202020;
     height: 3px;
     border: 0px;
-}
-
-.bar {
-    width: 30px;
-    height: 100px;
-    margin-top: -400px;
-    position: absolute;
-    text-align: center;
-}
-
-.bar:hover {
-    border: 2px solid rgba(255, 255, 0, 0.6);
-}
-
-.bar:hover > .data {
-    color: rgba(255, 255, 0, 0.6) !important;
-    font-weight: bold !important;
-    font-size: 64pt;
-}
-
-.blue {
-    background-color: rgba(60, 60, 255, 0.8) !important;
-}
-
-.red {
-    background-color: rgba(255, 60, 90, 0.6) !important;
-}
-
-.yellow {
-    background-color: rgba(255, 255, 0, 0.6) !important;
-}
-
-.data {
-    font-family: tahoma;
-    color: #607080;
-    position: relative;
-    z-index: 10000;
-}
-
-.square {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(60, 60, 255, 0.8);
-    transition: all 1s ease-in-out;
 }
