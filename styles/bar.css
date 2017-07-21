@@ -22,7 +22,7 @@
 
 .data {
     font-family: tahoma;
-    color: #607080;
+    color: rgba(255, 255, 0, 0.6);
     position: relative;
     z-index: 10000;
 }

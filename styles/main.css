@@ -35,14 +35,20 @@ body {
     padding-bottom: 2px;
     padding-left: 3px;
     padding-right: 3px;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 .button:hover {
-    color: #303030;
+}
+
+.button:active {
+    background-color: #202020 !important
 }
 
 .label {
-    font-family: Tahoma;
+    font-family: sans-serif;
+    color: #777;
 }
 
 hr {
