@@ -26,5 +26,5 @@
     var squareTimer = self.setInterval(squareTimerJob, 1000);
     var blinkTimer = self.setInterval(blinkTimerJob, 1000);
 
-    loadSquares('square-table');
+    loadSquares(document.getElementById('square-container'));
 }

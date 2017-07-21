@@ -1,6 +1,3 @@
-// (C) Jonathan Gregson, 2014
-// <jdgregson@gmail.com>
-
 /*
  * You must define these variables in your main js file.
  *
@@ -56,21 +53,6 @@ function SquareObject() {
     }
 }
 
-
-function loadSquares(target) {
-    var table = document.getElementById(target);
-    var numSquares = window.innerWidth / SQUARE_SIZE;
-
-    for(var I=0; I<SQUARE_ROWS; I++) {
-        table.appendChild(document.createElement('TR'));
-        for(var i=0; i<numSquares; i++) {
-            var square = new SquareObject();
-            squareArray.push(square);
-            table.children[I].appendChild(square.obj);
-        }
-    }
-}
-
  
 function squareTimerJob() {
     var square = squareArray[Math.floor(Math.random() * (squareArray.length))];
@@ -92,6 +74,25 @@ function blinkTimerJob() {
         } else {
             square.blinkColor = color;
             square.setColor('blue');
+        }
+    }
+}
+
+
+function loadSquares(target) {
+    var table = document.createElement('table');
+    table.setAttribute('cell-spacing', '5px');
+    table.setAttribute('cell-padding', '5px');
+    table.setAttribute('id', 'square-table');
+    target.appendChild(table);
+    var numSquares = window.innerWidth / SQUARE_SIZE;
+
+    for(var I=0; I<SQUARE_ROWS; I++) {
+        table.appendChild(document.createElement('TR'));
+        for(var i=0; i<numSquares; i++) {
+            var square = new SquareObject();
+            squareArray.push(square);
+            table.children[I].appendChild(square.obj);
         }
     }
 }
