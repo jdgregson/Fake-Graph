@@ -7,6 +7,7 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    overflow: hidden;
 }
 
 .gray {
@@ -29,6 +30,12 @@ body {
     height: 20px;
 }
 
+.panel-section {
+    display: inline-block;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
 .button {
     font-family: Tahoma;
     margin-left: 4px;
@@ -37,6 +44,7 @@ body {
     padding-right: 3px;
     border-radius: 3px;
     cursor: pointer;
+    display: inline-block;
 }
 
 .button:hover {
@@ -56,4 +64,48 @@ hr {
     background-color: #202020;
     height: 3px;
     border: 0px;
+}
+
+@media (max-width: 990px) {
+    #control-panel {
+        height: 60px;
+    }
+    .top {
+        margin-top: 25px;
+    }
+    .panel-section:last-of-type {
+        margin-bottom: 10px;
+        display: block;
+    }
+}
+
+@media (max-width: 650px) {
+    #control-panel {
+        height: 85px;
+    }
+    .top {
+        margin-top: 0;
+    }
+    .panel-section {
+        display: block;
+    }
+    #square-container {
+        margin-top: 6px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    #control-panel {
+        height: 65px;
+    }
+    .panel-section {
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+    .button {
+        margin-left: 0;
+        font-size: 10px;
+        line-height: 16px;
+        vertical-align: text-top;
+    }
 }
