@@ -64,13 +64,11 @@ function BarObject(right, height) {
 function moveAll() {
     // prune old bars if necessary
     if((barArray.length * totalSpace) > window.innerWidth) {
-        barArray.reverse();
-        var deleted = barArray.pop();
+        var deleted = barArray.splice(0, 1)[0];
         barContainer.removeChild(deleted.obj);
     }
 
-    for(I in barArray.reverse()) {
-        var i = parseInt(I);
+    for(i in barArray) {
         var bar = barArray[i];
         bar.setRight(bar.right + totalSpace);
     }
