@@ -31,7 +31,7 @@ function BarObject(right, height) {
 
     this.right = right;
     this.height = height;
-    this.id = (globalID++);
+    this.id = globalID = (globalID>=9007199254740990?0:++globalID);
     this.obj = document.createElement('DIV');
     this.obj.setAttribute('id', this.id);
     this.obj.setAttribute('class', 'bar ' + color);
